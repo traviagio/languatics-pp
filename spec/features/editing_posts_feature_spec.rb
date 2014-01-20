@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe 'editing a post' do
   
-  before do
+  before(:each) do
     create(:post)
+    login
   end
 
   it 'can change the Title and Content' do

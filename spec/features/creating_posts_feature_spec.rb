@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe 'creating a new post' do
 
+  before do
+    login
+  end
+
   it 'is created from a form, providing Title and Content' do
 
     visit '/posts/new'
