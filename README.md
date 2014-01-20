@@ -1,5 +1,3 @@
-
-
 ## Instagram application clone
 
 
