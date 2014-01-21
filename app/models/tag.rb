@@ -5,4 +5,9 @@ class Tag < ActiveRecord::Base
 		'#' + text
 	end
 
+	def to_param
+  		text
+  	end
+
+
 end

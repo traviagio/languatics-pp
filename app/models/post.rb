@@ -18,12 +18,13 @@ class Post < ActiveRecord::Base
 
 	  def tag_names=(tag_names)
 	  	self.tags = tag_names.split(', ').map do |tag_name|
+	  		tag_name.downcase.gsub(/[^a-z]/, '')
 	  		Tag.find_or_create_by(text: tag_name)
 	  	end
 	  end
 
-	  def self.for_tag_or_all(tag_id)
-	  	tag_id ? Tag.find(tag_id).posts : all
+	  def self.for_tag_or_all(tag_name)
+	  	tag_name ? Tag.find_by(text: tag_name).posts : all
 	  end
 
 end
