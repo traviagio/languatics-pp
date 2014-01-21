@@ -8,6 +8,6 @@
 <h2>Comments</h2>
 <%= render post.comments %>
 
-<%= post.tags.each do |tag| %>
-     #<%= tags.name %>
+<% post.tags.each do |tag| %>
+     <%= tag %>
      <% end %>
