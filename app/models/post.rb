@@ -22,4 +22,8 @@ class Post < ActiveRecord::Base
 	  	end
 	  end
 
+	  def self.for_tag_or_all(tag_id)
+	  	tag_id ? Tag.find(tag_id).posts : all
+	  end
+
 end
