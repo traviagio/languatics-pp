@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments
+  has_and_belongs_to_many :tags
   has_attached_file :image,
   								styles: { thumb: "300x300>" },
   								storage: :s3,
@@ -8,4 +9,17 @@ class Post < ActiveRecord::Base
   									secret_access_key: Rails.application.secrets.secret_access_key
   								},
   								bucket: 'swagstagram'
+
+
+
+	def tag_names
+	     tags.map{|tag| tag.name}.join(', ')
+	end
+
+	  def tag_names=(tag_names)
+	  	self.tags = tag_names.split(', ').map do |tag_name|
+	  		Tag.find_or_create_by(text: tag_name)
+	  	end
+	  end
+
 end

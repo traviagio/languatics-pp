@@ -21,8 +21,8 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def update
     if @post.update(params[:post].permit(:title, :content, :image))
