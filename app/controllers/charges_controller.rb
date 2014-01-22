@@ -1,14 +1,13 @@
 class ChargesController < ApplicationController
 
-def new
-end
+before_filter :authenticate_user!
 
 def create
   # Amount in cents
-  @amount = 500
+  @amount = 1500
 
   customer = Stripe::Customer.create(
-    :email => 'example@stripe.com',
+    :email => current_user.email,
     :card  => params[:stripeToken]
   )
 
@@ -19,9 +18,15 @@ def create
     :currency    => 'GBP'
   )
 
+  	#below here
+  flash[:notice] = 'Your payment was successful'
+  redirect_to '/posts'
+
+  	#email
+
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to charges_path
+  redirect_to '/posts'
 end
 
 

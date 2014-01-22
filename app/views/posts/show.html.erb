@@ -1,3 +1,15 @@
 <%= render @post.comments %>
 
-<h2>Buy a print</h2>
+<%= form_tag post_charges_path(@post) do %>
+
+<h3>Buy this print</h3>
+ <p>Bend in your pocket is only: £15.00</p>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.application.secrets[:stripe_publishable_key] %>"
+          data-description="Print of <%= @post.title %>"
+          data-amount="1500"
+          data-currency="GBP"></script>
+
+<% end %>
