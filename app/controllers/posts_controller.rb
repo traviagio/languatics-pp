@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :fetch_post, only: [:edit, :update, :destroy]
+  before_action :fetch_post, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!, only: [:new, :update]
   
   def new
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.for_tag_or_all params[:tag_id]
+    @posts = Post.for_tag_or_all(params[:tag_id]).order('created_at DESC')
   end
 
 
@@ -28,6 +28,9 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def show
   end
 
   def destroy

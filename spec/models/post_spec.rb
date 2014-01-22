@@ -18,7 +18,10 @@ describe Post do
 
   # end
 
-  # it 'formats the tag name to remove special characters, and make post'
+  # it 'formats the tag name to remove special characters, and make post' do
   # 		post = create(:post, tag_names: '#Yolo!, swag')
-  	
+  # 		expect(post.tags.first.name).to eq 'yolo'
+
+  # end
+
 end
