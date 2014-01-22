@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
