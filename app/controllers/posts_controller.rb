@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :fetch_post, only: [:edit, :update, :destroy, :show]
+  before_action :fetch_user_post, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :update]
   
   def new
@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post].permit(:title, :content, :image, :tag_names))
+    @post.user = current_user
 
     if @post.save
       redirect_to '/posts'
@@ -30,7 +31,13 @@ class PostsController < ApplicationController
     end
   end
 
+  # def user
+  #     @post.user = current_user
+  # end
+
+
   def show
+  @post = Post.find(params[:id])
   end
 
   def destroy
@@ -40,7 +47,7 @@ class PostsController < ApplicationController
 
   private
 
-  def fetch_post
-    @post = Post.find(params[:id])
+  def fetch_user_post
+    @post = current_user.post.find(params[:id])
   end
 end
