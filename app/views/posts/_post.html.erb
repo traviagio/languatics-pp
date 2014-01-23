@@ -8,13 +8,22 @@
 		<%= link_to 'Delete post', post_path(post), method: :delete %>
 	<% end %>	
 
-	<h2>Comments</h2>
-	<%= render post.comments %>
-
-	<% post.tags.each do |tag| %>
-	     <%= link_to tag, tag_posts_path(tag) %>
-	     <% end %>
-</div>
+		<div class='tags'>
+			<% post.tags.each do |tag| %>
+		     <%= link_to tag, tag_posts_path(tag) %>
+			<% end %>
+		</div>	
 
 		<%= link_to 'Add a comment', new_post_comment_path(post) %>
+		<br>
+	<% if post.comments.any? %>
+
+		<a class='btn btn-success'>Show comments</a>
+	<% end %>
+
+
+
+</div>
+
+		
 
