@@ -22,6 +22,8 @@ class PostsController < ApplicationController
     @posts = Post.for_tag_or_all(params[:tag_id]).order('created_at DESC')
   end
 
+  def edit
+  end
 
   def update
     if @post.update(params[:post].permit(:title, :content, :image, :tag_names))
@@ -31,23 +33,19 @@ class PostsController < ApplicationController
     end
   end
 
-  # def user
-  #     @post.user = current_user
-  # end
-
-
-  def show
-  @post = Post.find(params[:id])
-  end
-
   def destroy
     @post.destroy
     redirect_to '/posts'
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   private
 
   def fetch_user_post
-    @post = current_user.post.find(params[:id])
+    # @post = Post.find_by(id: params[:id], user: current_user)
+    @post = current_user.posts.find(params[:id])
   end
 end

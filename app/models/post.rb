@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
-  has_and_belongs_to_many :tags
   has_attached_file :image,
   								styles: { thumb: "300x300>" },
   								storage: :s3,
@@ -11,7 +10,7 @@ class Post < ActiveRecord::Base
   								},
   								bucket: 'swagstagram'
 
-
+  has_and_belongs_to_many :tags                
 
 	def tag_names
 	     tags.map{|tag| tag.name}.join(', ')
