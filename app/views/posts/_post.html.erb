@@ -3,11 +3,11 @@
 	<%= image_tag post.image.url(:thumb), class: 'instagram-upload' %></h1>
 		<p><%= post.content %></p>
 
-		<h3 class='votes_count'><%= post.points %></h3>	
+		<h3 class='votes_count' data-id='<%= post.id %>'><%= post.points %></h3>	
 
 	<% if user_signed_in? %>
-		<%= button_to 'Upvote', post_votes_path(post, up: true) %>
-		<%= button_to 'Downvote', post_votes_path(post, up: false) %>	
+		<%= button_to 'Upvote', post_votes_path(post, up: true), remote: true %>
+		<%= button_to 'Downvote', post_votes_path(post, up: false), remote: true %>	
 	<% end %>
 
 	<% if post.user == current_user %>

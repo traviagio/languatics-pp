@@ -6,7 +6,6 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-
- .navbar-default .navbar-brand {
+.navbar-brand {
     font-family: Georgia;
 }
