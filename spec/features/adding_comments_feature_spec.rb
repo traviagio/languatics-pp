@@ -1,19 +1,19 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe 'adding comments to a post' do
+# describe 'adding comments to a post' do
   
-  before do
-    create(:post)
-  end
+#   before do
+#     create(:post)
+#   end
 
-  it 'adds comments from a form providing Text' do
-    visit '/posts'
-    click_link 'Add a comment'
+#   it 'adds comments from a form providing Text' do
+#     visit '/posts'
+#     click_link 'Add a comment'
 
-    fill_in 'Text', with: 'This article is great'
-    click_button 'Create Comment'
+#     fill_in 'Text', with: 'This article is great'
+#     click_button 'Create Comment'
 
-    expect(page).to have_content 'This article is great'
-  end
+#     expect(page).to have_content 'This article is great'
+#   end
 
-end
+# end
