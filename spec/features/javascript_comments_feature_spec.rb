@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'loading comments' do
   before do
     post = create(:post)
-    create(:comment, post: post)
+    create(:comment, post: post, user: create(:user))
   end
 
   it 'should load comments with AJAX when I click show comments', js: true do
