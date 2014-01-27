@@ -31,7 +31,7 @@ class Post < ActiveRecord::Base
     end
 
     def send_new_post_email
-      PostMailer.new_post.deliver!
+      PostMailer.new_post(self, user).deliver!
     end
 
 end
