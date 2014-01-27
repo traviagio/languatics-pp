@@ -25,4 +25,8 @@ class Post < ActiveRecord::Base
 	  	tag_name ? Tag.find_by(text: tag_name).posts : all
 	  end
 
+    def points
+      votes.where(up: true).count - votes.where(up: false).count
+    end
+
 end
