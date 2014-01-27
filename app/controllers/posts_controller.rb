@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   private
 
   def fetch_user_post
-    # @post = Post.find_by(id: params[:id], user: current_user)
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find_by(id: params[:id], user: current_user)
+    # @post = current_user.posts.find(params[:id])
   end
 end

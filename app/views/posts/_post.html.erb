@@ -12,7 +12,11 @@
 			<% post.tags.each do |tag| %>
 		     <%= link_to tag, tag_posts_path(tag) %>
 			<% end %>
-		</div>	
+		</div>
+
+		<% post.comments.each do |comment| %>
+			<%= comment.text %>
+		<% end %>
 
 <%= link_to 'Add a comment', new_post_comment_path(post) %>
 <br>

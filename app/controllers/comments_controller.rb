@@ -19,4 +19,10 @@ class CommentsController < ApplicationController
     end
   end
 
+
+  def index
+    @post = Post.find(params[:post_id])
+    render json: @post.comments.to_json
+  end
+
 end

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-def login
-  login_as create(:user), scope: :user
+def login(user)
+  login_as user, scope: :user
 end

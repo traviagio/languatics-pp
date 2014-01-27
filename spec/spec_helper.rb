@@ -41,6 +41,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Warden.test_reset!
   end
 
   config.filter_run_excluding slow: true

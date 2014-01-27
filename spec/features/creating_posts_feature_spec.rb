@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'creating a new post' do
 
   before do
-    login
+    user = create(:user)
+    login(user)
   end
 
   it 'is created from a form, providing Title and Content' do
