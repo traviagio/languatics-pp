@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  after_create :send_new_post_email
   has_many :comments, dependent: :destroy
   has_many :votes
   belongs_to :user
@@ -27,6 +28,10 @@ class Post < ActiveRecord::Base
 
     def points
       votes.where(up: true).count - votes.where(up: false).count
+    end
+
+    def send_new_post_email
+      PostMailer.new_post.deliver!
     end
 
 end
