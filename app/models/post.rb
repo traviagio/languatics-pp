@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
+  has_many :votes
   belongs_to :user
   has_attached_file :image,
   								styles: { thumb: "300x300>" },

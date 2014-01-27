@@ -17,4 +17,7 @@
 //= require turbolinks
 //= require inputosaurus
 //= require mustache
+//= require websocket_rails/main
 //= require_tree .
+
+
