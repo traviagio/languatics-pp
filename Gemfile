@@ -45,6 +45,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'

@@ -2,8 +2,7 @@ class OmniauthCallbacksController < ApplicationController
 
 	def twitter
 		    # You need to implement the method below in your model (e.g. app/models/user.rb)
-    @user = User.find_for_twitter_oauth(request.env["omniauth.auth"])
-    sign_in_and_redirect @user
+    social
 
     #twitter's devise documentation which we shortened
 
@@ -15,5 +14,21 @@ class OmniauthCallbacksController < ApplicationController
     #   redirect_to new_user_registration_url
     # end
 	end
+
+		def facebook
+		    # You need to implement the method below in your model (e.g. app/models/user.rb)
+		   social
+	end
+
+	private
+
+	def social
+		@user = User.find_for_social_oauth(request.env["omniauth.auth"])
+    sign_in_and_redirect @user
+  end
+
+  # alias_method :twitter, :social
+  # alias_method :facebook, :social
+
 end
 

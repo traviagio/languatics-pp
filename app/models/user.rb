@@ -8,10 +8,11 @@ class User < ActiveRecord::Base
 
 
 
-	def self.find_for_twitter_oauth(auth)
+	def self.find_for_social_oauth(auth)
 		pwd = Devise.friendly_token[0,20]
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	    user.provider = auth.provider
+	    user.email = auth.info.email if auth.info.email
 	    user.uid = auth.uid
 	    user.password = pwd
 	    user.save!
@@ -19,8 +20,18 @@ class User < ActiveRecord::Base
 	end
 
 
+	# def self.find_for_facebook_oauth(auth)
+	# 	pwd = Devise.friendly_token[0,20]
+	#   where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+	#     user.provider = auth.provider
+	#     user.uid = auth.uid
+	#     user.password = pwd
+	#     user.save!
+	#   end
+	# end
+
 	def email_required?
-		return false if provider == 'twitter'
+		return false if provider 
 		super
 	end
 
