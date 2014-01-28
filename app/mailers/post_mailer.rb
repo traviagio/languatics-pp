@@ -3,6 +3,8 @@ class PostMailer < ActionMailer::Base
 
   def new_post(post, user)
   	@post = post
-  	mail to: user.email, subject: 'New post is created'
+  	if user
+	  	mail to: user.email, subject: 'New post is created'
+	  end
   end
 end

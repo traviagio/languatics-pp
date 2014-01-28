@@ -3,7 +3,9 @@ require 'spec_helper'
 describe 'upvoting and downvoting' do
 
 	before do
+		user = create(:user)
 		create(:post)
+		login(user)
 	end
 
 
