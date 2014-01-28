@@ -44,6 +44,7 @@ gem 'sdoc',          group: :doc, require: false
 gem 'spring',        group: :development
 
 gem 'devise'
+gem 'omniauth-twitter'
 
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
