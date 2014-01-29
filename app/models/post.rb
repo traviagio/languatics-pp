@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :votes
   belongs_to :user
   has_attached_file :image,
-  								styles: { thumb: "300x300>" },
+  								styles: { thumb: "250x250>" },
   								storage: :s3,
   								s3_credentials: {
   									access_key_id: 'AKIAISJ3BURO2DLFVRKQ',

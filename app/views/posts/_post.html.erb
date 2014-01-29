@@ -1,8 +1,8 @@
-<div class='col-md-4'>
-	<h1><%= link_to post.title, post_path(post) %></h1>
+<div class='col-md-4 fonts'>
+	<h1><%= link_to post.title, post_path(post), class: "fonts" %></h1>
 	<div class="post-container">
 		<div class="image">
-	<%= image_tag post.image.url(:thumb), class: 'instagram-upload' %></h1>
+	<%= image_tag post.image.url(:thumb), class: 'instagram-upload img-rounded img-reponsive' %></h1>
 </div>
 		<p><%= post.content %></p>
 
