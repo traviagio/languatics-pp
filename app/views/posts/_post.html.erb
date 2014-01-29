@@ -1,6 +1,9 @@
-<div class='col-md-5'>
+<div class='col-md-4'>
 	<h1><%= link_to post.title, post_path(post) %></h1>
+	<div class="post-container">
+		<div class="image">
 	<%= image_tag post.image.url(:thumb), class: 'instagram-upload' %></h1>
+</div>
 		<p><%= post.content %></p>
 
 		<h3 class='votes_count' data-id='<%= post.id %>'><%= post.points %></h3>	
@@ -23,6 +26,7 @@
 
 <%= link_to 'Add a comment', new_post_comment_path(post) %>
 <br>
+</div>
 
 
 	<% if post.comments.any? %>
