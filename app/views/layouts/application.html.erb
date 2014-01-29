@@ -53,22 +53,13 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "View Posts", "/posts"%></li>
             <li><%= link_to "New Post", "/posts/new"  %></li>
-          </ul>
-        </div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+      
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">User<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+       
 
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Account</h3>
-            <ul class="nav nav-list">                   
               <% if user_signed_in? %>
                 <li>
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
@@ -88,13 +79,25 @@
                 <%= link_to('Register', new_user_registration_path)  %>
                 </li>
               <% end %>
-            </ul>
-          </div><!--/.well -->
+
+                </div>
+             </li>
+             </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+
         </div><!--/span-->
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Swagstagram 2014</p>
+       <center> <p>&copy; Swagstagram 2014</p></center>
 
         <center>
         <style>.ig-b- { display: inline-block; }
