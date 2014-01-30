@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  # after_create :send_new_post_email
+  after_create :send_new_post_email
   has_many :comments, dependent: :destroy
   has_many :votes
   belongs_to :user
