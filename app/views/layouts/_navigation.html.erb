@@ -1,5 +1,5 @@
 <div class="container">
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -8,21 +8,21 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">Swagstagram</a>
+    <a class="navbar-brand" href="/">Languatics</a>
   </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><%= link_to "View Posts", "/posts"%></li>
-            <li><%= link_to "New Post", "/posts/new"  %></li> 
+            <li><%= link_to "Destinations", "/posts"%></li>
+            <li><%= link_to "Add destination", "/posts/new"  %></li> 
 
           </ul>
 
 
       <div class="navbar-form navbar-left" role="search">
         <%= form_tag search_posts_path, method: :get do %>
-        <%= text_field_tag :query, nil, id: 'search', class: "form-control", placeholder:"Search" %>
+        <%= text_field_tag :query, nil, id: 'search', class: "form-control", placeholder:"Search Destinations" %>
         <% end %>
       </div>
 
